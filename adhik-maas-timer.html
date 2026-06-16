@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="mr">
+
+lang="mr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,59 +38,7 @@
             padding: 15px 30px;
             font-size: 1.1em;
             border-radius: 50px;
-            cursor: pointer;
-            margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
-        }
-        button:hover { background: #E64A19; }
-        button:active { transform: scale(0.95); }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>पुरुषोत्तम मास 2026 🙏</h1>
-        <div id="tithi">आजची तिथी लोड होत आहे...</div>
-        <div id="timer"></div>
-        <button onclick="playMantra()">🔊 मंत्र ऐका</button>
-        <audio id="mantraAudio">
-            <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2a5fce7a81.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <script>
-        // 1. Timer Logic
-        const countDownDate = new Date("May 17, 2026 00:00:00").getTime();
-        const x = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById("timer").innerHTML = 
-                days + "<span class='label'> दिवस</span><br>" + 
-                hours + "<span class='label'> तास</span> " + 
-                minutes + "<span class='label'> मिनिटे</span> " + 
-                seconds + "<span class='label'> सेकंद</span> ";
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("timer").innerHTML = "पुरुषोत्तम मास सुरू झाला!";
-            }
-        }, 1000);
-
-        // 2. आजची तिथी दाखवणे
-        const tithiList = ["प्रतिपदा", "द्वितीया", "तृतीया", "चतुर्थी", "पंचमी", "षष्ठी", "सप्तमी", "अष्टमी", "नवमी", "दशमी", "एकादशी", "द्वादशी", "त्रयोदशी", "चतुर्दशी", "पौर्णिमा", "प्रतिपदा", "द्वितीया", "तृतीया", "चतुर्थी", "पंचमी", "षष्ठी", "सप्तमी", "अष्टमी", "नवमी", "दशमी", "एकादशी", "द्वादशी", "त्रयोदशी", "चतुर्दशी", "अमावस्या"];
-        const today = new Date();
-        const dayOfMonth = today.getDate();
-        const tithi = tithiList[(dayOfMonth - 1) % 30];
-        const paksha = dayOfMonth <= 15 ? "शुक्ल पक्ष" : "कृष्ण पक्ष";
-        document.getElementById("tithi").innerText = `आज: ${paksha}, ${tithi}`;
-
-        // 3. मंत्र वाजवणे
-        function playMantra() {
-            const audio = document.getElementById("mantraAudio");
-            audio.play();
-        }
+            cursor: pointer;  }
     </script>
 </body>
 </html>
