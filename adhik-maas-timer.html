@@ -1,49 +1,82 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>अधिक मास 2026 Countdown | My BCS Journey</title>
-  <style>
-    body { 
-      background: linear-gradient(135deg, #FFF3E0, #FFE0B2); 
-      font-family: sans-serif; 
-      text-align: center; 
-      padding: 20px;
-      min-height: 100vh;
-      margin: 0;
-    }
-    .container {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      max-width: 500px;
-      margin: 50px auto;
-    }
-    h1 { 
-      color: #E65100; 
-      margin-bottom: 10px;
-    }
-    #timer { 
-      font-size: 32px; 
-      color: #BF360C; 
-      font-weight: bold;
-      margin: 30px 0;
-      line-height: 1.4;
-    }
-    .label {
-      font-size: 16px;
-      color: #5D4037;
-    }
-    .footer {
-      margin-top: 30px;
-      color: #795548;
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>पुरुषोत्तम मास 2026 Timer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1604608672516-f1b9b1e1c8a8?w=1200');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 20px;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            margin: 50px auto;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        h1 { font-size: 2em; margin-bottom: 10px; }
+        #tithi { font-size: 1.2em; margin-bottom: 20px; color: #FFD700; font-weight: bold; }
+        #timer { font-size: 2.5em; font-weight: bold; margin: 20px 0; line-height: 1.4; }
+        .label { font-size: 0.4em; opacity: 0.8; }
+        button {
+            background: #FF5722;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.4);
+        }
+        button:hover { background: #E64A19; }
+        button:active { transform: scale(0.95); }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🙏 पुरुषोत्तम मास 2026 🙏</h1>
-    <p class="label">सुरू हो
+    <div class="container">
+        <h1>पुरुषोत्तम मास 2026 🙏</h1>
+        <div id="tithi">आजची तिथी लोड होत आहे...</div>
+        <div id="timer"></div>
+        <button onclick="playMantra()">🔊 मंत्र ऐका</button>
+        <audio id="mantraAudio">
+            <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2a5fce7a81.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        // 1. Timer Logic
+        const countDownDate = new Date("May 17, 2026 00:00:00").getTime();
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("timer").innerHTML = 
+                days + "<span class='label'> दिवस</span><br>" + 
+                hours + "<span class='label'> तास</span> " + 
+                minutes + "<span class='label'> मिनिटे</span> " + 
+                seconds + "<span class='label'> सेकंद</span> ";
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "पुरुषोत्तम मास सुरू झाला!";
+            }
+        }, 1000);
+
+        // 2. आजची तिथी दाखवणे
+        const tithiList = ["प्रतिपदा", "द्वितीया", "तृतीया", "च
