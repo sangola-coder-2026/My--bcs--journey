@@ -1,81 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="mr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>पुरुषोत्तम मास 2026</title>
-    <style>
-        body {
-            background:linear-gradient(135deg,#1a1a2e 0%,#e94560 100%);
-            color: #fff;
-            font-family: Arial;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .box {
-            background: #16213e;
-            padding: 25px;
-            border-radius: 15px;
-            max-width: 400px;
-            border: 2px solid #e94560;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        h1 { color: #f9ed69; margin: 0 0 15px 0; font-size: 28px; }
-        #tithi { color: #f9ed69; font-size: 18px; margin-bottom: 20px; }
-        #timer { font-size: 32px; font-weight: bold; line-height: 1.6; }
-        .unit { font-size: 14px; color: #ccc; }
-        button {
-            background: #e94560;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 16px;
-            border-radius: 25px;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-        button:hover { background: #ff6b81; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पुरुषोत्तम मास 2026</title>
+<style>
+body{
+background:linear-gradient(135deg,#1a1a2e 0%,#e94560 100%);
+color:#fff;
+font-family:Arial;
+text-align:center;
+padding:20px;
+margin:0;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+.box{
+background:#16213e;
+padding:30px;
+border-radius:15px;
+max-width:400px;
+border:2px solid #e94560;
+}
+h1{color:#f9ed69;margin:0 0 15px 0;font-size:28px;}
+#tithi{color:#f9ed69;font-size:18px;margin-bottom:20px;}
+#timer{font-size:32px;font-weight:bold;line-height:1.8;}
+.unit{font-size:14px;color:#ccc;}
+button{
+background:#e94560;
+color:white;
+border:none;
+padding:12px 25px;
+font-size:16px;
+border-radius:25px;
+margin-top:20px;
+cursor:pointer;
+}
+</style>
 </head>
 <body>
-    <div class="box">
-        <h1>पुरुषोत्तम मास 2026 🙏</h1>
-        <div id="tithi">आजची तिथी लोड होतेय...</div>
-        <div id="timer">लोड होत आहे...</div>
-        <button onclick="const m=new SpeechSynthesisUtterance('ओम नमो भगवते वासुदेवाय');m.lang='hi-IN';m.rate=0.8;speechSynthesis.speak(m)">🔊 मंत्र ऐका</button>
-    </div>
+<div class="box">
+<h1>पुरुषोत्तम मास 2026 🙏</h1>
+<div id="tithi">आजची तिथी: लोड होतेय...</div>
+<div id="timer">लोड होत आहे...</div>
+<button onclick="speakMantra()">🔊 मंत्र ऐका</button>
+</div>
 
-    <script>
-        // Timer - 2027 च्या पुरुषोत्तम मास पर्यंत
-        var targetDate = new Date("2027-06-15T00:00:00+05:30").getTime();
-        setInterval(function() {
-            var now = new Date().getTime();
-            var diff = targetDate - now;
-            
-            if(diff < 0) {
-                document.getElementById("timer").innerHTML = "पुरुषोत्तम मास सुरू झाला! 🎉";
-                return;
-            }
-            
-            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById("timer").innerHTML = 
-                days + " <span class='unit'>दिवस</span><br>" +
-                hours + " <span class='unit'>तास</span> " +
-                minutes + " <span class='unit'>मिनिटे</span> " +
-                seconds + " <span class='unit'>सेकंद</span>";
-        }, 1000);
+<script>
+function speakMantra(){
+const m=new SpeechSynthesisUtterance('ओम नमो भगवते वासुदेवाय');
+m.lang='hi-IN';
+m.rate=0.8;
+speechSynthesis.speak(m);
+}
 
-        // Tithi - साधी Demo तिथी
-        var tithiArray = ["प्रतिपदा", "द्वितीया", "तृतीया", "चतुर्थी", "पंचमी", "ष्ठी", "सप्तमी", "अष्टमी", "नवमी", "दशमी", "एकादशी", "द्वादशी", "त्रयोदशी", "चतुर्दशी", "पौर्णिमा", "प्रतिपदा", "द्वितीया"];
-        var today = new Date();
-        var tithiIndex = today.getDate() % tithiArray.length;
-        document.getElementById("tithi").innerHTML = "आज: " + tithi
+var targetDate=new Date("2027-06-15T00:00:00+05:30").getTime();
+
+function updateTimer(){
+var now=new Date().getTime();
+var diff=targetDate-now;
+
+if(diff<0){
+document.getElementById("timer").innerHTML="पुरुषोत्तम मास सुरू झाला! 🎉";
+return;
+}
+
+var days=Math.floor(diff/(1000*60*60*24));
+var hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+var minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+var seconds=Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("timer").innerHTML=
+days+" <span class='unit'>दिवस</span><br>"+
+hours+" <span class='unit'>तास</span> "+
+minutes+" <span class='unit'>मिनिटे</span> "+
+seconds+" <span class='unit'>सेकंद</span>";
+} // <- हे बघ भावा, इथे function चा } बंद केला
+
+var tithiArray=["प्रतिपदा","द्वितीया","तृतीया","चतुर्थी","पंचमी","ष्ठी","सप्तमी","अष्टमी","नवमी","दशमी","एकादशी","द्वादशी","त्रयोदशी","चतुर्दशी","पौर्णिमा","अमावस्या"];
+var today=new Date();
+var tithiIndex=today.getDate()%tithiArray.length;
+document.getElementById("tithi").innerHTML="आज: "+tithiArray[tithiIndex]+" तिथी";
+
+updateTimer();
+setInterval(updateTimer,1000);
+</script>
+</body>
+</html>
