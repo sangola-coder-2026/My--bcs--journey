@@ -1,25 +1,78 @@
 
 <!DOCTYPE html>
-<html lang="mr">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>पुरुषोत्तम मास 2026 Timer</title>
+    <title>पुरुषोत्तम मास 2026</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            font-family: Arial;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200') center/cover fixed;
-            color: white;
             padding: 20px;
-            min-height: 100vh;
             margin: 0;
         }
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);;
+        .box {
+            background: #16213e;
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 400px;
+            margin: 40px auto;
+            border: 2px solid #e94560;
         }
+        h1 { color: #f9ed69; margin: 0 0 15px 0; }
+        #tithi { color: #f9ed69; font-size: 18px; margin-bottom: 20px; }
+        #timer { font-size: 32px; font-weight: bold; line-height: 1.5; }
+        .unit { font-size: 14px; color: #ccc; }
+        button {
+            background: #e94560;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 25px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>पुरुषोत्तम मास 2026 🙏</h1>
+        <div id="tithi"></div>
+        <div id="timer">लोड होत आहे...</div>
+        <button onclick="alert('मंत्र लवकरच जोडू!')">🔊 मंत्र ऐका</button>
+    </div>
+
+    <script>
+        // Timer
+        var targetDate = new Date("2026-05-17T00:00:00+05:30").getTime();
+        
+        setInterval(function() {
+            var now = new Date().getTime();
+            var diff = targetDate - now;
+            
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById("timer").innerHTML = 
+                days + " <span class='unit'>दिवस</span><br>" +
+                hours + " <span class='unit'>तास</span> " +
+                minutes + " <span class='unit'>मिनिटे</span> " +
+                seconds + " <span class='unit'>सेकंद</span>";
+        }, 1000);
+
+        // Tithi
+        var tithiArray = ["प्रतिपदा", "द्वितीया", "तृतीया", "चतुर्थी", "पंचमी", "षष्ठी", "सप्तमी", "अष्टमी", "नवमी", "दशमी", "एकादशी", "द्वादशी", "त्रयोदशी", "चतुर्दशी", "पौर्णिमा", "प्रतिपदा", "द्वितीया", "तृतीया", "चतुर्थी", "पंचमी", "षष्ठी", "सप्तमी", "अष्टमी", "नवमी", "दशमी", "एकादशी", "द्वादशी", "त्रयोदशी", "चतुर्दशी", "अमावस्या"];
+        var today = new Date();
+        var date = today.getDate();
+        var tithi = tithiArray[(date - 1) % 30];
+        var paksha = date <= 15 ? "शुक्ल पक्ष" : "कृष्ण पक्ष";
+        document.getElementById("tithi").innerText = "आज: " + paksha + ", " + tithi;
     </script>
 </body>
 </html>
