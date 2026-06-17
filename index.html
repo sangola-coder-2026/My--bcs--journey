@@ -96,15 +96,21 @@ setInterval(updateTimer,1000);
     पुरुषोत्तम मासात विशेष महापूजा आणि दर्शनाची महती.
   </p>
 </div>
-
-<!-- WhatsApp Share Button -->
+<!-- WhatsApp Share Button - Final Working -->
 <div style="text-align: center; margin: 20px;">
-  <button onclick="shareOnWhatsApp()" style="background: #25D366; color: white; border: none; padding: 15px 30px; font-size: 18px; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+  <a href="https://wa.me/?text=🙏%20पुरुषोत्तम%20मास%202026%20🙏%0A%0Aपावन%20कुंडलपूर%20येथे%20पुरुषोत्तम%20मासाचा%20टाइमर%20बघा%20आणि%20मंत्र%20ऐका.%0A%0A" 
+     id="whatsappBtn"
+     target="_blank"
+     style="background: #25D366; color: white; text-decoration: none; padding: 15px 30px; font-size: 18px; border-radius: 50px; display: inline-block; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
     🟢 भक्तांना WhatsApp वर पाठवा
-  </button>
+  </a>
 </div>
 
 <script>
+  var btn = document.getElementById('whatsappBtn');
+  btn.href = btn.href + encodeURIComponent(window.location.href);
+</script>
+
 function shareOnWhatsApp() {
   var text = "🙏 पुरुषोत्तम मास 2026 🙏%0A%0Aपावन कुंडलपूर येथे पुरुषोत्तम मासाचा टाइमर बघा आणि मंत्र ऐका.%0A%0A";
   var url
