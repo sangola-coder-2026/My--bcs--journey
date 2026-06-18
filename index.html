@@ -26,7 +26,24 @@ border:2px solid #e94560;
 }
 h1{color:#f9ed69;margin:0 0 15px 0;font-size:28px;}
 #tithi{color:#f9ed69;font-size:18px;margin-bottom:20px;}
-#timer{font-size:32px;font-weight:bold;line-height:1.8;}
+
+#timer{
+  font-size:clamp(20px,6vw,32px);
+  font-weight:bold;
+  line-height:1.8;
+  text-align:center;
+  padding:0 10px;
+  white-space:nowrap;
+  overflow-x:auto;
+}
+
+@media (max-width:360px){
+  #timer{
+    font-size:18px;
+    letter-spacing:-0.5px;
+  }
+}
+
 .unit{font-size:14px;color:#ccc;}
 button{
 background:#e94560;
